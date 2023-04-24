@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1><a class="back-arrow" href="/local-search">&#x2190;</a></h1>
+
+        <h1>Results for query: {{query}}</h1>
+        {% if results %}
+            {% for item in results %}
+                <div class="result-objects" >
+                    <h1 onclick="handleToggle()" id="{{loop.index}}">Title: {{item['title']}}</h1>
+                    <p>{{item['artist']}}</p>
+                    <br>
+                    <p>Rank: {{item['rank']}}</p>
+                    <p>Year: {{item['year']}}</p> 
+                    <p>{{item.snippet|safe}}</p>
+                    <div class="info" id="{{loop.index}}">
+                            fucking work god dammit
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p> no results found</p>
+        {% endif %}
+    </div>
+</body>
+</html>
+<script>
+
+</script>
+<style>
+    .result-objects{
+        border: solid black;
+        display: flex;
+        flex-flow: column wrap;
+        width: 60%;
+        margin: auto;
+        margin-bottom: 2rem;
+        border-radius: 1rem;
+        padding: 1rem;
+    }
+    .info{
+        display: none;
+    }
+    .info.visible{
+        display: block;
+    }
+    .back-arrow{
+        text-decoration: none;
+        color: black;
+        font-size: 3rem;
+        font-weight: bold;
+    }
+    .back-arrow:visited{
+        color: black;
+    }
+</style>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h2>Welcome</h2>
+            <a href="/local-search">Local Search</a>
+            <a href="/web-search">Web Search</a>
+        </div>
+    </div>
+</body>
+</html>
+
+<style>
+    .container{
+        display: flex;
+       
+        justify-content: center;
+        align-content: center;
+        
+    }
+    .content{
+        
+        display: inherit;
+        justify-content: center;
+        align-content: center baseline;
+        flex-direction: column;
+        padding: 1rem;
+        text-align: center;
+        
+        width: 20rem;
+        height: 10rem;
+    }
+    a{
+        display: block;
+        margin-top: 5rem;
+        margin: auto;
+        padding: .5rem;
+        border-radius: .75rem;
+        width: 10rem;
+        position: static;
+        background: #b9b9b8;
+        cursor: pointer;
+        color: black;
+        text-decoration: none;
+    }
+    a:visited{
+        position: absolute;
+        top: -2px;
+        transform: translate(8px, 8px);
+        transition: transform .2s ease-out;
+        z-index: -1;
+    }
+    a:hover{
+        background: #76c8ff;
+        transform: translateY(-2px);
+        box-shadow: 10px 17px 17px -7px rgba(0,0,0,0.63);
+    }
+</style>

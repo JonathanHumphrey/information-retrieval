@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <h1><a class="back-arrow" href="/web-search">&#x2190;</a></h1>
+        {% for item in results %}
+           <div class="data">
+            <h3><a href="{{item.url}}">{{item.name|safe}}</a></h3>
+            <p>{{item.snippet|safe}}</p>
+
+           </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
+<script>
+    
+</script>
+<style>
+    .data{
+        border: solid black;
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        margin: auto;
+        margin-bottom: 2rem;
+        border-radius: 1rem;
+    }
+    .back-arrow{
+        text-decoration: none;
+        color: black;
+        font-size: 3rem;
+        font-weight: bold;
+    }
+    .back-arrow:visited{
+        color: black;
+    }
+    h3{
+        margin: 1rem;
+    }
+    p{
+        margin: 2rem;
+    }
+</style>
