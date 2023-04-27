@@ -2,6 +2,8 @@ import csv
 import requests
 import os
 
+import codecs
+
 from dotenv import load_dotenv, find_dotenv
 # whoosh imports
 from whoosh import index
@@ -75,7 +77,7 @@ def setup():
     index = create_in(index_dir, schema)
 
     with index.writer() as writer:
-        with open("lyrics.csv", "r") as csvfile:
+        with open("output.csv", "r", encoding="utf-8") as csvfile:
             reader = csv.DictReader(csvfile)
             
             for row in reader:
@@ -84,6 +86,9 @@ def setup():
                                     title=row["Song"],
                                     artist=row["Artist"],
                                     lyrics=row["Lyrics"]) 
+
+
+
 def bing_search(query):
     search_url = "https://api.bing.microsoft.com/v7.0/search"
     headers = {

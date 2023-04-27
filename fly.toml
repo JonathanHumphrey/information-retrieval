@@ -1,6 +1,6 @@
-# fly.toml file generated for dark-water-9667 on 2023-04-14T16:08:33-05:00
+# fly.toml file generated for fragrant-lake-1876 on 2023-04-24T15:44:53-05:00
 
-app = "dark-water-9667"
+app = "fragrant-lake-1876"
 kill_signal = "SIGINT"
 kill_timeout = 5
 mounts = []
