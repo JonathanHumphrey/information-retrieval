@@ -8,6 +8,9 @@
 </head>
 <body>
     <div class="search-container">
+        <div class="nav-bar">
+            <h1><a class="back-arrow" href="/">Home</a></h1>
+        </div>
         <div class="form-container">
             <form action="/web-search" method="post">
                 <label for="query">Query</label>
@@ -26,6 +29,35 @@
         flex-direction: row;
         justify-content: center;
         align-content: center;
+        position: relative;
+    }
+    label{
+        font-weight: bold;
+    }
+    .nav-bar{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .back-arrow{
+        display: block;
+        margin-top: 5rem;
+        margin: auto;
+        padding: .5rem;
+        border-radius: .75rem;
+        width: 10rem;
+        background: #b9b9b8;
+        cursor: pointer;
+        color: black;
+        text-decoration: none;
+    }
+    .back-arrow:hover{
+        background: #76c8ff;
+        transform: translateY(-2px);
+        box-shadow: 10px 17px 17px -7px rgba(0,0,0,0.63);
+    }
+    .back-arrow:visited{
+        color: black;
     }
     .form-container{
         display: inherit;
@@ -61,5 +93,7 @@
     }
     input{
         margin-bottom: 5rem;
+        line-height: 2rem;
+        border-radius: 1rem;
     }
 </style>

@@ -2,8 +2,6 @@ import csv
 import requests
 import os
 
-import codecs
-
 from dotenv import load_dotenv, find_dotenv
 # whoosh imports
 from whoosh import index
@@ -31,7 +29,6 @@ def landing_page():
 def local_search():
     if request.method == 'POST':
         keyword = request.form['keyword']
-        
         ix = index.open_dir("index")
         with ix.searcher() as searcher:
             parser = QueryParser("lyrics", schema=ix.schema)
@@ -48,8 +45,11 @@ def local_search():
                     'rank': hit['rank'],
                     'snippet': snippet
                 }
+                for key, value in result.items():
+                    if(isinstance(value, str)):
+                        result[key] = value.capitalize()
                 results.append(result)
-            return render_template("localResults.html",query=keyword, results=results)
+            return render_template("localResults.html", query=keyword, results=results)
     else:
         return render_template("localSearch.html")
 
@@ -62,8 +62,6 @@ def web_search():
         return render_template("webResults.html", results=results)
     else: 
         return render_template("webSearch.html")
-
-
 
 # PROCESSING
 @app.route("/details/<data>")
@@ -86,9 +84,7 @@ def setup():
                                     title=row["Song"],
                                     artist=row["Artist"],
                                     lyrics=row["Lyrics"]) 
-
-
-
+           
 def bing_search(query):
     search_url = "https://api.bing.microsoft.com/v7.0/search"
     headers = {

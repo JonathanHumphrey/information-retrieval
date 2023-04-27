@@ -7,18 +7,23 @@
     <title>Document</title>
 </head>
 <body>
-    <div>
-        <h1><a class="back-arrow" href="/local-search">&#x2190;</a></h1>
+    <div class="container">
+        <div class="nav-bar">
+            <h1><a class="back-arrow" href="/local-search">&#x2190;</a></h1>
+            <h1><a class="back-arrow" href="/">Home</a></h1>
+        </div>
 
-        <h1>Results for query: {{query}}</h1>
+        <h1 class="header">Results for Query: {{query}}</h1>
         {% if results %}
             {% for item in results %}
                 <div class="result-objects" >
                     <h1 onclick="handleToggle()" id="{{loop.index}}">Title: {{item['title']}}</h1>
-                    <p>{{item['artist']}}</p>
+                    <h2>{{item['artist']}}</h2>
                     <br>
-                    <p>Rank: {{item['rank']}}</p>
-                    <p>Year: {{item['year']}}</p> 
+                    <div class="song-info">
+                        <p>Rank: {{item['rank']}}</p>
+                        <p>Year: {{item['year']}}</p>
+                    </div> 
                     <p>{{item.snippet|safe}}</p>
                     <div class="info" id="{{loop.index}}">
                             fucking work god dammit
@@ -35,6 +40,17 @@
 
 </script>
 <style>
+    .container{
+        position: relative;
+    }
+    .header{
+        text-align: center;
+    }
+    .song-info{
+        display: flex;
+        justify-content: space-between;
+        width: 20rem;
+    }
     .result-objects{
         border: solid black;
         display: flex;
@@ -44,6 +60,7 @@
         margin-bottom: 2rem;
         border-radius: 1rem;
         padding: 1rem;
+        background: #b2c4db;
     }
     .info{
         display: none;
@@ -51,11 +68,27 @@
     .info.visible{
         display: block;
     }
+    .nav-bar{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
     .back-arrow{
-        text-decoration: none;
+        display: block;
+        margin-top: 5rem;
+        margin: auto;
+        padding: .5rem;
+        border-radius: .75rem;
+        width: 10rem;
+        background: #b9b9b8;
+        cursor: pointer;
         color: black;
-        font-size: 3rem;
-        font-weight: bold;
+        text-decoration: none;
+    }
+    .back-arrow:hover{
+        background: #76c8ff;
+        transform: translateY(-2px);
+        box-shadow: 10px 17px 17px -7px rgba(0,0,0,0.63);
     }
     .back-arrow:visited{
         color: black;
